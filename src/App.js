@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
-import Radium from 'radium';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +9,7 @@ class App extends Component {
 			{id: "aghcd" , name: 'anmol', age: 22},
 			{id: "123bhcd" , name: 'abhi', age: 23}
 		],
-		showPersona: false
+		showPersona: true
 	}
 
 
@@ -35,18 +34,6 @@ class App extends Component {
 		});
 	}
 	render() {
-		const button = {
-			backgroundColor: "green",
-			color: "#fff",
-			padding: "10px",
-			fontSize: "1rem",
-			border: "1px solid #eee",
-			cursor: "pointer",
-			":hover" : {
-				backgroundColor: "white",
-				color: "black"
-			}
-		}
 
 		let persons=null;
 		if(this.state.showPersona){
@@ -55,10 +42,6 @@ class App extends Component {
 						{this.state.persons.map((person,index) => <Person data={person} changed={(event) => this.changeHandler(event,person.id)} delete={() => this.deleteHandler(index)} key={person.id}/>)}
 					</div> 
 			);
-			button.backgroundColor="red";
-			button[":hover"] = {
-				color: "black"
-			}
 		}
 
 		let classes = [];
@@ -72,11 +55,11 @@ class App extends Component {
 		return (
 			<div className="App">
 				<h1 className={classes.join(' ')}>Persona</h1>
-				<button style={button} onClick={this.togglePersona}>Reset</button>
+				<button className="button"  onClick={this.togglePersona}>Reset</button>
 				{persons}
 			</div>
 		);
 	}
 }
 
-export default Radium(App);
+export default App;

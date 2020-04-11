@@ -9,3 +9,17 @@
 .red{
   color: red;
 }
+
+.button{
+  background-color: green;
+	color: #fff;
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid #eee;
+	cursor: pointer;
+}
+
+.button:hover{
+  background-color: white;
+  color: black;
+}
